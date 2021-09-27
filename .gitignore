@@ -1,0 +1,4 @@
+devel/*
+build/*
+src/arduino_files/.vscode
+src/.vscode
