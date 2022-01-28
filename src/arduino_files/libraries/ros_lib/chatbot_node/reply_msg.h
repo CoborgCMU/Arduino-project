@@ -24,7 +24,7 @@ namespace chatbot_node
     {
     }
 
-    virtual int serialize(unsigned char *outbuffer) const override
+    virtual int serialize(unsigned char *outbuffer) const
     {
       int offset = 0;
       offset += this->header.serialize(outbuffer + offset);
@@ -36,7 +36,7 @@ namespace chatbot_node
       return offset;
     }
 
-    virtual int deserialize(unsigned char *inbuffer) override
+    virtual int deserialize(unsigned char *inbuffer)
     {
       int offset = 0;
       offset += this->header.deserialize(inbuffer + offset);
@@ -52,8 +52,8 @@ namespace chatbot_node
      return offset;
     }
 
-    virtual const char * getType() override { return "chatbot_node/reply_msg"; };
-    virtual const char * getMD5() override { return "49f8a60a46dc2a23c8756dda3465c662"; };
+    const char * getType(){ return "chatbot_node/reply_msg"; };
+    const char * getMD5(){ return "49f8a60a46dc2a23c8756dda3465c662"; };
 
   };
 

@@ -7,7 +7,7 @@
 #include <Arduino.h>
 #include <ros.h>
 #include <sensor_msgs/JointState.h>
-#include <rosserial_arduino/CMU.h>
+#include <cmu_motor_lab/CMU.h>
 
 ////////////////////////
 // Variable Declarations
@@ -115,7 +115,7 @@ void messageCb(const sensor_msgs::JointState& msg) { //don't move this function.
 // ROS node type(s) declaration
 ros::NodeHandle nh; //create a NodeHandle called nh
 ros::Subscriber<sensor_msgs::JointState> sub("joint_states", messageCb);  //subscribe to joint_states
-rosserial_arduino::CMU cmu_msg; //define CMU message type
+cmu_motor_lab::CMU cmu_msg; //define CMU message type
 ros::Publisher pub("CMU", &cmu_msg); //create a publisher to cmu_message of type CMU
 
 void setup(){
