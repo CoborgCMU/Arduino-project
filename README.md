@@ -17,7 +17,7 @@ To run the ROS package for the gui, follow these steps:\
 Now we have to recompile the message library for the (jank) rosserial package to work:\
 `cd Coborg-Platform/arduino_ws/src/arduino_files/libraries`\
 `rm -rf ros_lib`\
-`rosrun rosserial_arduino make_libraries.py .` <- that period is important. include it in the command.
+`rosrun rosserial_arduino make_libraries.py . cmu_motor_lab` <- that period is important. include it in the command.
 
 You should be ready to launch the gui. plug in the arduino to a usb port and run:\
 `sudo chmod a+rw /dev/ttyACM0`\
@@ -62,4 +62,4 @@ In file included from Coborg-Platform/arduino_ws/src/arduino_files/libraries/ros
 Coborg-Platform/arduino_ws/src/arduino_files/libraries/ros_lib/ros/msg.h:40:10: fatal error: cstring: No such file or directory
  #include <cstring>
 
-Basically the `rosrun rosserial_arduino make_libraries.py .` command installs a broken ros_lib library (I know. Why ROS, Why...). Copy the contents from ros_lib_backup into ros_lib and you will be able to compile the arduino code (overwrite).
+Basically the `rosrun rosserial_arduino make_libraries.py .` was not located in the correct directory. Make sure your Arduino compiler can see the correct library folder.
